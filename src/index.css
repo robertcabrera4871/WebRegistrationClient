@@ -1,0 +1,90 @@
+#hidden{
+    display:none
+}
+#show{
+    display:block
+}
+#align-center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    
+}
+#sched-h-tag{
+    text-align: center;
+}
+.text-align{
+    text-align: center;
+}
+.checkbox-pad{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.align-center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.pie-center{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+.table-center{
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+}
+.login-button-right{
+    float: right;
+}
+.logout-button{
+    margin-left: auto;
+    order: 2;
+}
+.topSpace{
+    margin-top: 25px;
+}
+ .filter{
+    display:none;
+}
+
+@media (hover: hover){
+    .column:hover .filter{
+        display: block;
+    }    
+}
+
+.column:hover{
+    background-color:bisque;
+}
+
+.buttonDivider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+.bigDivider{
+    width:20px;
+    height:auto;
+    display:inline-block;
+}
+.vertical{
+    height: 50px;
+    width: auto;
+    display: inline-block;
+}
+.leftTable{
+    width:50%;
+    margin:auto;
+    float:left;
+}
+.rightTable{
+    width:50%;
+    margin: auto;
+    float: right;
+}
+
+#parent { white-space: nowrap; }
+.child { display: inline-block; }
