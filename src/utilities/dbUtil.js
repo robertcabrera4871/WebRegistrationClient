@@ -880,6 +880,7 @@ static async getSpringCal(){
       }
 
       static async myMajorRequirements(userID, majorID){
+        console.log(userID, majorID)
         const majorsResponse = await Axios.post("https://web-registration-app.herokuapp.com/myMajorRequirements",{
           params: {
             userID: userID,
