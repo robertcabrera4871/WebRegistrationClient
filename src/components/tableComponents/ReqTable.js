@@ -112,8 +112,6 @@ export default function ReqTable() {
     // major ? requirements = requirements.filter(item => (item.majorID === major)):
     // requirements = requirements.filter(item => (item.minorID === minor));
 
-
-
     var initialState = ""
     if(!privs.isAdmin){
       initialState = {hiddenColumns: ['Actions']}
@@ -125,7 +123,7 @@ export default function ReqTable() {
         headerGroups,
         rows,
         prepareRow,
-    } = useTable({columns, data: specific})
+    } = useTable({columns, data: specific, initialState})
     
 
     // const {pageIndex} = state
