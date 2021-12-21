@@ -1330,6 +1330,18 @@ static async getSpringCal(){
       return getResponse.data
     }
 
+    
+    static async checkSchedConflict(userID, semesterYearID, timeSlotID){
+      const getResponse = await Axios.post("https://web-registration-app.herokuapp.com/checkSchedConflict",{
+        params: {
+          userID: userID,
+          semesterYearID: semesterYearID,
+          timeSlotID: timeSlotID
+        }
+      })
+      return getResponse.data
+    }
+
     static async getPeriod(startTime, endTime){
       const getResponse = await Axios.post("https://web-registration-app.herokuapp.com/getPeriod",{
         params: {
