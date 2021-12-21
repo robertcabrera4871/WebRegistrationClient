@@ -63,6 +63,7 @@ export default function AddMS(){
 
         async function checkAvailability(){
             const response = await dbUtil.checkAvailability(newRow)
+            console.log(response)
             if(response.err){
                 window.alert(response.err.sqlMessage)
                 return("")

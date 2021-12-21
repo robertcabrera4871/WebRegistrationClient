@@ -117,8 +117,8 @@ import Spinner from 'react-bootstrap/Spinner'
 
     async function switchAttendence(id, meetingDate, presence){
         const res = await dbUtil.switchAttendence(id, meetingDate, !presence)
-        if(!res.err){
-          window.location.reload(false)
+        if(res.err){
+          window.alert("Error assigning attendance")
         }
     }
 
