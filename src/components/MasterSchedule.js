@@ -61,6 +61,8 @@ export default function MasterSchedule(){
      async function addClassStudent(row){
       const student = await dbUtil.getStudent(user.userID)
       const currentTaking = await creditCheck(row, student);
+      if(await checkSchedConflict(row)){window.alert("Student has a schedule conflic"); return("")}
+      if(await checkHolds()){window.alert("Student has holds"); return("")}
       if(await checkPreReq(row.courseID, user.userID)){window.alert("You have not completed the prerequisite"); return("")}
       if(await checkDoubleCourse(row.courseID, user.userID)){window.alert("You have already enrolled in this course"); return("")}
       if(await checkAlreadyComplete(row.CRN, user.userID)){window.alert("You have already taken this class"); return("")}
@@ -83,8 +85,29 @@ export default function MasterSchedule(){
            if(res.err){
               window.alert(res.err)
            }else{
-            window.location.reload(false)
+            // window.location.reload(false)
            }
+        }
+     }
+
+     async function checkSchedConflict(row){
+          for(const i in schedule){
+         var addPeriod = await dbUtil.getPeriod(row.startTime, row.endTime)
+         console.log(addPeriod, schedule[i])
+            if(schedule[i].day == row.day && schedule[i].period === addPeriod.periodID){
+               window.alert("You have a schedule conflict")
+               return("")
+            }
+      }
+     }
+
+     async function checkHolds(){
+        const holds = await dbUtil.getHolds(user.userID);
+        if(holds.length === 0){
+           return false;
+        }else{
+           console.log(holds)
+           return true;
         }
      }
 

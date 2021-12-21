@@ -66,7 +66,7 @@ export default function CourseTable() {
            }}
             }>❌</button>
             <div className='bigDivider'/>
-            <button onClick={()=>{addPrereq(cell.row.original)}}title="Add Prereq"> ↪️</button>
+            <button onClick={()=>{addPrereq(cell.row.original)}}title="Add Prereq"> ➕</button>
           </div>
         )
       },

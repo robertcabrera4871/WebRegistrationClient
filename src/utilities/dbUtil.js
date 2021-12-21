@@ -1330,6 +1330,16 @@ static async getSpringCal(){
       return getResponse.data
     }
 
+    static async getPeriod(startTime, endTime){
+      const getResponse = await Axios.post("https://web-registration-app.herokuapp.com/getPeriod",{
+        params: {
+          startTime: startTime,
+          endTime: endTime,
+        }
+      })
+      return getResponse.data
+    }
+
     static async getStudentsEnrolled(){
       const getResponse = await Axios.get("https://web-registration-app.herokuapp.com/getStudentsEnrolled")
       return getResponse.data
