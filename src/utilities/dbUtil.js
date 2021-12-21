@@ -637,6 +637,14 @@ static async getSpringCal(){
         })
         return userSchedResponse.data
       }
+      static async updateCreditsEarned(userID){
+        const userSchedResponse = await Axios.post("https://web-registration-app.herokuapp.com/updateCreditsEarned", {
+          params: {
+            userID: userID
+          }
+        })
+        return userSchedResponse.data
+      }
 
       static async getCoursesTeaching(userID){
         const userSchedResponse = await Axios.post("https://web-registration-app.herokuapp.com/getCoursesTeaching", {
