@@ -73,8 +73,7 @@ export default function MasterSchedule(){
          if(await addClassTimeCheck()){return("")}}
 
         const response = await dbUtil.addMyClass(row.CRN, user.userID); 
-        const updateCredits = await dbUtil.updateCredits(user.userID, currentTaking)
-        console.log(updateCredits)
+        const updateCredits = await dbUtil.updateCreditsEarned(user.userID, currentTaking)
         if(response.err){
            console.log(response)
            window.alert("You are already enrolled in this class")
@@ -90,8 +89,10 @@ export default function MasterSchedule(){
      }
 
      async function creditCheck(row, student){
+      console.log(row.semesterYearID)
       const minMax = await dbUtil.creditCheck(student[0].studentID)
-      const creds = await dbUtil.getCreditsTaking(student[0].studentID);
+      const creds = await dbUtil.getCreditsTaking(student[0].studentID, row.semesterYearID);
+      console.log(creds)
       var currentCreds = 0;
       for(const i in creds){
          currentCreds = currentCreds + creds[i].numOfCredits

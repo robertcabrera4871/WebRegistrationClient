@@ -718,9 +718,10 @@ static async getSpringCal(){
         })
         return response.data;
       }
-      static async getCreditsTaking(studentID){
+      static async getCreditsTaking(studentID, semesterYearID){
         const response = await Axios.post("https://web-registration-app.herokuapp.com/getCreditsTaking", {
           params: {
+            semesterYearID: semesterYearID,
             studentID: studentID
           }
         })
