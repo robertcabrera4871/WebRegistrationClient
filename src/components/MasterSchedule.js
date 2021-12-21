@@ -92,7 +92,6 @@ export default function MasterSchedule(){
 
      async function checkSchedConflict(row){
             var rowTimeID = await dbUtil.getTimeSlotID(row.startTime, row.endTime, row.day)
-            console.log(rowTimeID[0].timeslotID)
             const res = await dbUtil.checkSchedConflict(user.userID, row.semesterYearID, rowTimeID[0].timeslotID)
             console.log(res)
             if(res.length !== 0 ){
@@ -258,7 +257,7 @@ export default function MasterSchedule(){
       console.log(response)
       if(response.err){
          window.alert("Teacher is already teaching this class")
-      } else if(response.affectedRows === 1){
+      } else {
          window.alert("Teacher is assigned")
          window.location.reload(false);
       }
