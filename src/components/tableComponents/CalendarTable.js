@@ -158,9 +158,9 @@ export default function CalendarTable(semesterSelect){
             Cell: ({cell}) => (
                 
               <div id="parent">
-             { privs.isAdmin && history.location.pathname !="/home" &&  <button className="child" title="Edit Description" onClick={() => editDescription(cell.row.original)}>✏️</button>}
-             { privs.isAdmin && history.location.pathname !="/home" &&  <button className="child" title="Edit Date" onClick={() => editDate(cell.row.original)}>🕖</button>}
-             { privs.isAdmin && history.location.pathname !="/home" &&  checkUndeletable(cell.row.original) &&
+             { privs.isAdmin && history.location.pathname !=="/home" &&  <button className="child" title="Edit Description" onClick={() => editDescription(cell.row.original)}>✏️</button>}
+             { privs.isAdmin && history.location.pathname !=="/home" &&  <button className="child" title="Edit Date" onClick={() => editDate(cell.row.original)}>🕖</button>}
+             { privs.isAdmin && history.location.pathname !=="/home" &&  checkUndeletable(cell.row.original) &&
              <button className="child"  onClick={() => {deleteEvent(cell.row.original)}}>❌</button>}
 
               </div>

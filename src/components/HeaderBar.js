@@ -28,7 +28,7 @@ function HeaderBar({setToken}){
               {(privs.isAdmin || privs.isFaculty) &&  <Nav.Link className='child' href="/users">Users</Nav.Link>}
               {privs.isFaculty && <Nav.Link className='child'  href="/facHistory">Faculty History</Nav.Link>}
               {privs.isAdmin && <Nav.Link className='child'  href="/timeWindow">Time Window</Nav.Link> }
-              {(privs.isResearch)  && <Nav.Link className='child' href="/statData">Statistical Data</Nav.Link>}
+              {(privs.isResearch || privs.isAdmin)  && <Nav.Link className='child' href="/statData">Statistical Data</Nav.Link>}
               {privs.isAdmin && <Nav.Link className='child'  href='/buildAndRoom'>Rooms and Buildings</Nav.Link>}
               <Nav className='justify-content-end'style={{ width: "10%" }} >
               <div>
